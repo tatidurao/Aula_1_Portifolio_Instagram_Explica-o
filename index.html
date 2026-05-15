@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Faz o site funcionar melhor em celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aula: Fontes e Ícones no HTML</title>
+
+    <!-- 
+        FONTE DO GOOGLE
+
+        Esse link vem do site Google Fonts.
+        Ele permite usar a fonte Poppins no nosso projeto.
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- 
+        ÍCONES DO FONT AWESOME
+
+        Esse link permite usar ícones prontos no nosso site.
+        Exemplo: coração, estrela, lua, código, jogo, usuário etc.
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --cor-principal: #ff6b8b;
+            --cor-secundaria: #6c63ff;
+            --cor-fundo: #f7f7fb;
+            --cor-card: #ffffff;
+            --cor-texto: #181830;
+            --cor-suave: #737386;
+            --cor-destaque: #fff0f4;
+            --sombra: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 32px 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff6b8b, #6c63ff);
+            color: white;
+            padding: 48px 32px;
+            border-radius: 28px;
+            box-shadow: var(--sombra);
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 760px;
+            opacity: 0.95;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 8px 14px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .card {
+            background: var(--cor-card);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--sombra);
+            margin-bottom: 24px;
+        }
+
+        .card h2 {
+            font-size: 26px;
+            margin-bottom: 14px;
+            color: var(--cor-texto);
+        }
+
+        .card h2 i {
+            color: var(--cor-principal);
+            margin-right: 8px;
+        }
+
+        .card p {
+            color: var(--cor-suave);
+            margin-bottom: 14px;
+            font-size: 16px;
+        }
+
+        .destaque {
+            background: var(--cor-destaque);
+            border-left: 5px solid var(--cor-principal);
+            padding: 18px;
+            border-radius: 16px;
+            margin: 18px 0;
+        }
+
+        .destaque strong {
+            color: var(--cor-texto);
+        }
+
+        .codigo {
+            background: #181830;
+            color: #f8f8ff;
+            padding: 18px;
+            border-radius: 16px;
+            overflow-x: auto;
+            font-size: 14px;
+            margin: 18px 0;
+        }
+
+        .codigo code {
+            font-family: Consolas, monospace;
+            white-space: pre;
+        }
+
+        .lista-passos {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .passo {
+            display: flex;
+            gap: 14px;
+            background: #f8f8fc;
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid #eeeeff;
+        }
+
+        .numero {
+            min-width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--cor-principal);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .passo h3 {
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .passo p {
+            margin-bottom: 0;
+            font-size: 15px;
+        }
+
+        .exemplos-icones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .icone-card {
+            background: #f8f8fc;
+            border: 1px solid #eeeeff;
+            border-radius: 18px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .icone-card i {
+            font-size: 32px;
+            color: var(--cor-secundaria);
+            margin-bottom: 10px;
+        }
+
+        .icone-card span {
+            display: block;
+            font-size: 14px;
+            color: var(--cor-suave);
+        }
+
+        .atividade {
+            background: #fff;
+            border: 2px dashed var(--cor-principal);
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .atividade h2 {
+            color: var(--cor-principal);
+            margin-bottom: 12px;
+        }
+
+        .atividade ul {
+            padding-left: 22px;
+            color: var(--cor-suave);
+        }
+
+        .atividade li {
+            margin-bottom: 10px;
+        }
+
+        .mini-projeto {
+            background: linear-gradient(135deg, #ffffff, #fff4f7);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--sombra);
+            margin-bottom: 24px;
+        }
+
+        .perfil-demo {
+            background: white;
+            max-width: 420px;
+            border-radius: 22px;
+            padding: 24px;
+            margin-top: 20px;
+            box-shadow: var(--sombra);
+            text-align: center;
+        }
+
+        .perfil-demo i {
+            color: var(--cor-principal);
+        }
+
+        .foto-fake {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            color: white;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 24px;
+            color: var(--cor-suave);
+            font-size: 14px;
+        }
+
+        a {
+            color: var(--cor-secundaria);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 34px 24px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .passo {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="tag">
+                <i class="fa-solid fa-code"></i>
+                Aula de HTML e CSS
+            </div>
+
+            <h1>Como usar fontes do Google e ícones no seu site</h1>
+
+            <p>
+                Nesta aula, vamos aprender como deixar uma página mais bonita usando fontes externas 
+                e ícones prontos. A ideia é simples: o aluno vai entender onde colocar os links, 
+                como usar no código e onde buscar novas opções.
+            </p>
+        </section>
+
+
+        <section class="card">
+            <h2><i class="fa-solid fa-lightbulb"></i> Antes de começar</h2>
+
+            <p>
+                Quando criamos uma página em HTML, podemos usar apenas os recursos básicos do navegador.
+                Mas também podemos trazer recursos de fora, como fontes e ícones.
+            </p>
+
+            <div class="destaque">
+                <p>
+                    <strong>Google Fonts</strong> serve para escolher fontes diferentes para o site.
+                    <br>
+                    <strong>Font Awesome</strong> serve para colocar ícones prontos, como coração, estrela,
+                    lua, jogo, código e muitos outros.
+                </p>
+            </div>
+
+            <p>
+                Esses recursos são chamados dentro da tag <strong>&lt;head&gt;</strong>, que é a área de
+                configurações da página.
+            </p>
+        </section>
+
+
+        <section class="card">
+            <h2><i class="fa-solid fa-file-code"></i> Onde colocar os links?</h2>
+
+            <p>
+                Os links devem ficar dentro do <strong>&lt;head&gt;</strong>, antes do nosso arquivo CSS.
+                Isso ajuda o navegador a carregar primeiro os recursos externos e depois aplicar o nosso estilo.
+            </p>
+
+            <div class="codigo"><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Meu Portfólio&lt;/title&gt;
+
+    &lt;!-- Fonte do Google --&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;
+
+    &lt;!-- Ícones do Font Awesome --&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"&gt;
+
+    &lt;!-- Meu arquivo CSS --&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></div>
+
+            <div class="destaque">
+                <p>
+                    Pense no <strong>&lt;head&gt;</strong> como a mochila do site. 
+                    Antes de começar a aula, ele já precisa estar com os materiais certos.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="card">
+            <h2><i class="fa-solid fa-font"></i> Como usar uma fonte do Google Fonts</h2>
+
+            <p>
+                Para escolher uma fonte, acesse:
+                <a href="https://fonts.google.com/" target="_blank">fonts.google.com</a>
+            </p>
+
+            <p>
+                Lá você pode pesquisar fontes como Poppins, Roboto, Montserrat, Lato, Nunito ou Open Sans.
+                Depois de escolher, o Google Fonts mostra o link que deve ser colocado no HTML.
+            </p>
+
+            <div class="lista-passos">
+                <div class="passo">
+                    <div class="numero">1</div>
+                    <div>
+                        <h3>Acesse o Google Fonts</h3>
+                        <p>Entre no site e procure uma fonte que combine com o projeto.</p>
+                    </div>
+                </div>
+
+                <div class="passo">
+                    <div class="numero">2</div>
+                    <div>
+                        <h3>Copie o link da fonte</h3>
+                        <p>O link deve ser colado dentro da tag <strong>&lt;head&gt;</strong> do HTML.</p>
+                    </div>
+                </div>
+
+                <div class="passo">
+                    <div class="numero">3</div>
+                    <div>
+                        <h3>Use a fonte no CSS</h3>
+                        <p>Depois, aplique a fonte usando a propriedade <strong>font-family</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="codigo"><code>body {
+    font-family: 'Poppins', sans-serif;
+}</code></div>
+
+            <p>
+                A parte <strong>'Poppins'</strong> é a fonte escolhida.
+                A parte <strong>sans-serif</strong> é uma fonte reserva, caso a primeira não carregue.
+                É o famoso “plano B”, porque até o navegador gosta de se prevenir.
+            </p>
+        </section>
+
+
+        <section class="card">
+            <h2><i class="fa-solid fa-weight-hanging"></i> O que são os números da fonte?</h2>
+
+            <p>
+                No link da fonte, podem aparecer números como 300, 400, 500, 600 e 700.
+                Eles representam o peso da letra.
+            </p>
+
+            <div class="codigo"><code>family=Poppins:wght@300;400;500;600;700</code></div>
+
+            <div class="destaque">
+                <p>
+                    <strong>300</strong> = fonte mais fina<br>
+                    <strong>400</strong> = fonte normal<br>
+                    <strong>500</strong> = fonte média<br>
+                    <strong>600</strong> = seminegrito<br>
+                    <strong>700</strong> = negrito
+                </p>
+            </div>
+
+            <div class="codigo"><code>h1 {
+    font-weight: 700;
+}
+
+p {
+    font-weight: 400;
+}</code></div>
+        </section>
+
+
+        <section class="card">
+            <h2><i class="fa-solid fa-icons"></i> Como usar ícones com Font Awesome</h2>
+
+            <p>
+                Para buscar ícones, acesse:
+                <a href="https://fontawesome.com/search" target="_blank">fontawesome.com/search</a>
+            </p>
+
+            <p>
+                O Font Awesome é uma biblioteca de ícones. Depois que colocamos o link no HTML,
+                podemos usar os ícones com a tag <strong>&lt;i&gt;</strong>.
+            </p>
+
+            <div class="codigo"><code>&lt;i class="fa-solid fa-heart"&gt;&lt;/i&gt;</code></div>
+
+            <p>
+                Esse exemplo mostra um coração. O nome do ícone fica dentro da classe.
+            </p>
+
+            <div class="exemplos-icones">
+                <div class="icone-card">
+                    <i class="fa-solid fa-heart"></i>
+                    <strong>Coração</strong>
+                    <span>fa-heart</span>
+                </div>
+
+                <div class="icone-card">
+                    <i class="fa-solid fa-code"></i>
+                    <strong>Código</strong>
+                    <span>fa-code</span>
+                </div>
+
+                <div class="icone-card">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <strong>Jogo</strong>
+                    <span>fa-gamepad</span>
+                </div>
+
+                <div class="icone-card">
+                    <i class="fa-solid fa-star"></i>
+                    <strong>Estrela</strong>
+                    <span>fa-star</span>
+                </div>
+
+                <div class="icone-card">
+                    <i class="fa-solid fa-moon"></i>
+                    <strong>Lua</strong>
+                    <span>fa-moon</span>
+                </div>
+
+                <div class="icone-card">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                    <strong>Astronauta</strong>
+                    <span>fa-user-astronaut</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="card">
+            <h2><i class="fa-solid fa-palette"></i> Como mudar cor e tamanho dos ícones</h2>
+
+            <p>
+                Os ícones funcionam quase como textos. Por isso, podemos mudar a cor com 
+                <strong>color</strong> e o tamanho com <strong>font-size</strong>.
+            </p>
+
+            <div class="codigo"><code>.logo i {
+    color: #ff6b8b;
+    font-size: 28px;
+}</code></div>
+
+            <p>
+                Também é possível colocar espaço entre o ícone e o texto usando <strong>margin-right</strong>.
+            </p>
+
+            <div class="codigo"><code>p i {
+    margin-right: 8px;
+}</code></div>
+        </section>
+
+
+        <section class="mini-projeto">
+            <h2><i class="fa-solid fa-laptop-code"></i> Exemplo aplicado em um portfólio</h2>
+
+            <p>
+                Veja um exemplo simples de como a fonte e os ícones podem aparecer em um perfil de aluno.
+            </p>
+
+            <div class="perfil-demo">
+                <div class="foto-fake">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Ana Silva</h3>
+
+                <p>
+                    <i class="fa-solid fa-code"></i>
+                    Estou aprendendo HTML, CSS e JavaScript.
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-gamepad"></i>
+                    Gosto de jogos, tecnologia e criatividade.
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    Meu objetivo é criar meus próprios projetos.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="atividade">
+            <h2><i class="fa-solid fa-clipboard-check"></i> Atividade prática</h2>
+
+            <p>
+                Agora é a vez do aluno personalizar o próprio projeto.
+            </p>
+
+            <ul>
+                <li>Escolha uma fonte no Google Fonts.</li>
+                <li>Copie o link da fonte e coloque dentro do <strong>&lt;head&gt;</strong>.</li>
+                <li>Aplique a fonte no CSS usando <strong>font-family</strong>.</li>
+                <li>Acesse o Font Awesome e escolha três ícones.</li>
+                <li>Coloque um ícone no título, um na bio e outro em algum post.</li>
+                <li>Mude a cor e o tamanho de pelo menos um ícone usando CSS.</li>
+            </ul>
+        </section>
+
+
+        <section class="card">
+            <h2><i class="fa-solid fa-message"></i> Resumo da aula</h2>
+
+            <div class="destaque">
+                <p>
+                    <strong>Google Fonts</strong> muda a aparência das letras do site.
+                    <br>
+                    <strong>Font Awesome</strong> adiciona ícones prontos.
+                    <br>
+                    <strong>&lt;head&gt;</strong> é onde colocamos os links externos.
+                    <br>
+                    <strong>CSS</strong> é onde personalizamos a fonte, a cor e o tamanho.
+                </p>
+            </div>
+
+           
+        </section>
+
+
+        <footer class="rodape">
+            Aula criada para praticar HTML, CSS, Google Fonts e Font Awesome.
+        </footer>
+
+    </main>
+
+</body>
+</html>
